@@ -103,7 +103,7 @@ def action_worker():
     print("[ACTION] Action thread started.")
 
     pattern = [500, 300, 500, 600]
-    pattern_waiting = [0, 0, 0, 0.6]
+    pattern_waiting = [0, 0, 0, 0.8]
     pattern_index = 0
     pattern_waiting_index = 0
 
