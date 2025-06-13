@@ -153,7 +153,7 @@ def main():
     time.sleep(1)
     img = adb_screencap()
     if img is not None:
-    	if find_template(img, template_network_connection):
+        if find_template(img, template_network_connection):
             time.sleep(5)
 
         if find_template(img, template_close):
