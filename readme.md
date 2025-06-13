@@ -53,8 +53,8 @@ This will launch the automation and begin detecting the game state and tapping a
 If you want to improve the accuracy or behavior of the bot, you can fine-tune the clicking pattern:
 
 In fishing_bot.py, find and edit these lines:
-
+```
 pattern = [500, 300, 500, 600]         # In milliseconds
 pattern_waiting = [0, 0, 0, 0.7]       # In seconds
-
-The code will do click hold for 500ms, wait 0s, click hold for 300ms, wait 0s ... and yeah the pattern use miliseconds and pattern_waiting use seconds.
+```
+The code will do click hold for 500ms, wait 0s, click hold for 300ms, wait 0s ... and so on
