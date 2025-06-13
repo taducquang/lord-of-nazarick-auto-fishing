@@ -102,13 +102,14 @@ def vision_watchdog_worker():
 def action_worker():
     print("[ACTION] Action thread started.")
 
-    pattern = [500, 300, 500, 600]
-    pattern_waiting = [0, 0, 0, 0.8]
+    pattern = [500, 300, 500, 300, 500, 500, 500, 700]
+    pattern_waiting = [0, 0.2, 0, 0.8, 0, 0.2, 0, 0.8]
     pattern_index = 0
     pattern_waiting_index = 0
 
 
     while not stop_event.is_set():
+        # print(f"[CLICK] Click hold for {pattern[pattern_index]} miliseconds and waiting for {pattern_waiting[pattern_waiting_index]} seconds")
         adb_swipe_hold(*reel_button, pattern[pattern_index])
         time.sleep(pattern_waiting[pattern_waiting_index])
         pattern_index = (pattern_index + 1) % len(pattern)
