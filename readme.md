@@ -54,7 +54,7 @@ If you want to improve the accuracy or behavior of the bot, you can fine-tune th
 
 In fishing_bot.py, find and edit these lines:
 ```
-pattern = [500, 300, 500, 300, 500, 500, 500, 700]      # In milliseconds
-pattern_waiting = [0, 0.2, 0, 0.8, 0, 0.2, 0, 0.8]      # In seconds
+pattern = [500, 500, 500, 700]      # In milliseconds
+pattern_waiting = [0.2, 0.2, 0.2, 0.8]      # In seconds
 ```
 The code will do click hold for 500ms, wait 0s, click hold for 300ms, wait 0s ... and so on
