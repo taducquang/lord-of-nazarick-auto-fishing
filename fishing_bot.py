@@ -6,7 +6,7 @@ import threading
 import signal
 
 # === ADB config ===
-adb_device = "127.0.0.1:21503"
+adb_device = "127.0.0.1:5555"
 reel_button = (1748, 925)
 
 
@@ -102,8 +102,8 @@ def vision_watchdog_worker():
 def action_worker():
     print("[ACTION] Action thread started.")
 
-    pattern = [500, 300, 500, 300, 500, 500, 500, 700]
-    pattern_waiting = [0, 0.2, 0, 0.8, 0, 0.2, 0, 0.8]
+    pattern = [500, 500, 500, 700]
+    pattern_waiting = [0.2, 0.2, 0.2, 0.8]
     pattern_index = 0
     pattern_waiting_index = 0
 
@@ -122,6 +122,7 @@ def run_macro_attempt():
     reset_event.clear()
     
     adb_swipe_hold(*reel_button, 1000)
+    time.sleep(0.2)
 
     vision_thread = threading.Thread(target=vision_watchdog_worker)
     action_thread = threading.Thread(target=action_worker)
