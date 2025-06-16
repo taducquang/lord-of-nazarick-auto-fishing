@@ -120,9 +120,6 @@ def action_worker():
 def run_macro_attempt():
     stop_event.clear()
     reset_event.clear()
-    
-    adb_swipe_hold(*reel_button, 1000)
-    time.sleep(0.2)
 
     vision_thread = threading.Thread(target=vision_watchdog_worker)
     action_thread = threading.Thread(target=action_worker)
