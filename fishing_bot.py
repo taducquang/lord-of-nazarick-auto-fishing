@@ -49,8 +49,6 @@ def find_template(source, template, threshold=0.8):
     _, max_val, _, max_loc = cv2.minMaxLoc(result)
     return max_loc if max_val >= threshold else None
 
-import time
-
 def wait_for_template_and_click(template, label, click_location=None):
     print(f"[WAIT] Looking for {label}...")
     start_time = time.time()
