@@ -57,4 +57,4 @@ In fishing_bot.py, find and edit these lines:
 pattern = [1000, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 1500]        # In milliseconds
 pattern_waiting = [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 2.2]  # In seconds
 ```
-The code will do click hold for 500ms, wait 0s, click hold for 300ms, wait 0s ... and so on
+The code will do click hold for 1000ms, wait 0.2s, click hold for 400ms, wait 0.2s ... and so on
