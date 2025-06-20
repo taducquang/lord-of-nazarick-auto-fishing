@@ -99,9 +99,8 @@ def vision_watchdog_worker():
 
 def action_worker():
     print("[ACTION] Action thread started.")
-
     pattern = [1000, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 1500]
-    pattern_waiting = [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 2.2]
+    pattern_waiting = [0.2, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 2.2]
     pattern_index = 0
     pattern_waiting_index = 0
 
