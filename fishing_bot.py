@@ -172,6 +172,54 @@ def signal_handler(sig, frame):
 signal.signal(signal.SIGINT, signal_handler)
 signal.signal(signal.SIGTERM, signal_handler)
 
+def adb_connect_and_test(ip_port: str) -> bool:
+    try:
+        # First, check if already connected
+        result_devices = subprocess.run(
+            ['adb', 'devices'],
+            capture_output=True,
+            text=True,
+            timeout=5
+        )
+
+        connected_devices = result_devices.stdout.strip().splitlines()[1:]
+        for device in connected_devices:
+            if device.startswith(ip_port) and "device" in device:
+                print(f"Already connected to {ip_port}")
+                return True
+
+        # Not connected, try connecting
+        result_connect = subprocess.run(
+            ['adb', 'connect', ip_port],
+            capture_output=True,
+            text=True,
+            timeout=5
+        )
+        print(result_connect.stdout.strip())
+
+        # Recheck devices
+        result_devices = subprocess.run(
+            ['adb', 'devices'],
+            capture_output=True,
+            text=True,
+            timeout=5
+        )
+
+        connected_devices = result_devices.stdout.strip().splitlines()[1:]
+        for device in connected_devices:
+            if device.startswith(ip_port) and "device" in device:
+                return True
+
+        return False
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return False
+
 if __name__ == "__main__":
-    while True:
-        main()
+    if adb_connect_and_test(adb_device):
+        print("ADB device connected successfully!")
+        while True:
+            main()
+    else:
+        print("Failed to connect to ADB device.")
